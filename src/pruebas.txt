@@ -1,0 +1,94 @@
+# ============================
+# FAVORITOS
+# ============================
+
+# AÑADIR UN PLANETA FAVORITO (planet_id = 1)
+curl -i -X POST http://localhost:3000/favorite/planet/1
+
+# AÑADIR UNA PERSONA FAVORITA (people_id = 1)
+curl -i -X POST http://localhost:3000/favorite/people/1
+
+# ELIMINAR UN PLANETA FAVORITO (planet_id = 1)
+curl -i -X DELETE http://localhost:3000/favorite/planet/1
+
+# ELIMINAR UNA PERSONA FAVORITA (people_id = 1)
+curl -i -X DELETE http://localhost:3000/favorite/people/1
+
+
+# ============================
+# USERS
+# ============================
+
+# LISTAR TODOS LOS USUARIOS
+curl -i http://localhost:3000/users
+
+# LISTAR TODOS LOS FAVORITOS DEL USUARIO ACTUAL (user_id = 1 simulado)
+curl -i http://localhost:3000/users/favorites
+
+
+# ============================
+# PEOPLE (PERSONAS)
+# ============================
+
+# LISTAR TODAS LAS PERSONAS
+curl -i http://localhost:3000/people
+
+# OBTENER UNA PERSONA POR ID (por ejemplo id = 1)
+curl -i http://localhost:3000/people/1
+
+
+# CREAR PERSONA
+curl -i -X POST http://localhost:3000/people \
+  -H "Content-Type: application/json" \
+  -d '{
+        "name": "Luke Skywalker",
+        "email": "luke@rebels.com",
+        "gender": "male"
+      }'
+
+# ACTUALIZAR PERSONA (id = 1)
+curl -i -X PUT http://localhost:3000/people/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+        "name": "Luke Skywalker Updated",
+        "email": "luke.updated@rebels.com",
+        "gender": "male"
+      }'
+
+# ELIMINAR PERSONA (id = 1)
+curl -i -X DELETE http://localhost:3000/people/1
+
+
+# ============================
+# PLANETS
+# ============================
+
+# LISTAR TODOS LOS PLANETAS
+curl -i http://localhost:3000/planets
+
+# OBTENER UN PLANETA POR ID (por ejemplo id = 1)
+curl -i http://localhost:3000/planets/1
+
+
+# CREAR PLANETA
+curl -i -X POST http://localhost:3000/planets \
+  -H "Content-Type: application/json" \
+  -d '{
+        "name": "Tatooine",
+        "climate": "arid",
+        "terrain": "desert",
+        "population": 200000
+      }'
+
+# ACTUALIZAR PLANETA (id = 1)
+curl -i -X PUT http://localhost:3000/planets/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+        "name": "Tatooine Updated",
+        "climate": "hot",
+        "terrain": "desert - updated",
+        "population": 210000
+      }'
+
+# ELIMINAR PLANETA (id = 1)
+curl -i -X DELETE http://localhost:3000/planets/1
